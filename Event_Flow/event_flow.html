@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Flow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    
+<!-- Főoldal kezdő tartalom -->
+<div class="container mt-5">
+   
+    <div class="slider text-center text-white d-flex justify-content-center align-items-center">
+        <!-- Bejelentkezés / Regisztráció -->
+        <a href="#" class="btn login-btn blue" data-bs-toggle="modal" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span><i></i></a>
+    </div>
+
+    <!--            SLIDER              -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="IMG/helynekem.jpg" class="d-block w-100 slide-kep" alt="helynekem">
+          </div>
+          <div class="carousel-item">
+            <img src="IMG/rockwell_2.png" class="d-block w-100 slide-kep" alt="rockwell">
+          </div>
+          <div class="carousel-item">
+            <img src="IMG/grizzly.jpg" class="d-block w-100 slide-kep" alt="grizzly">
+          </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    <!-- Esemény szűrők és létrehozás -->
+    <div class="d-flex justify-content-between mt-3">
+        <button class="gomb btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
+        <select class="form-select w-25" id="eventFilter">
+            <option value="all">Esemény típus</option>
+            <option value="koncert">Koncert</option>
+            <option value="hazibuli">Házibuli</option>
+            <option value="kertiparty">Kerti Party</option>
+            <option value="rendezveny">Rendezvény</option>
+        </select>
+    </div>
+
+    <!-- Eseménykártyák -->
+    <div class="row mt-3" id="eventCards">
+        <!-- Példa kártyák -->
+        <div class="col-md-3 event-card">
+            <div class="card">
+                <div class="event-image">
+                    <img src="IMG/grizzly.jpg" class="col-md-12">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Esemény címe</h5>
+                    <p class="card-text">Helyszín: Budapest</p>
+                    <p class="card-text">Leírás: Ez egy példa esemény leírása.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Esemény létrehozása Modal -->
+<div class="modal fade" id="createEventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Esemény létrehozása</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createEventForm">
+                    <div class="mb-3">
+                        <label for="eventName" class="form-label">Esemény neve:</label>
+                        <input type="text" class="form-control" id="eventName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventType" class="form-label">Esemény típus:</label>
+                        <select class="form-select" id="eventType">
+                            <option value="koncert">Koncert</option>
+                            <option value="hazibuli">Házibuli</option>
+                            <option value="kertiparty">Kerti Party</option>
+                            <option value="rendezveny">Rendezvény</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventDesc" class="form-label">Leírás:</label>
+                        <textarea class="form-control" id="eventDesc" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventLocation" class="form-label">Helyszín:</label>
+                        <input type="text" class="form-control" id="eventLocation">
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventImage" class="form-label">Kép:</label>
+                        <input type="file" class="form-control" id="eventImage">
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="privateEvent">
+                        <label for="privateEvent" class="form-check-label">Privát esemény</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+                <button type="button" class="btn btn-primary" id="createEventBtn">Létrehozás</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bejelentkezés / Regisztráció Modal -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="authModalLabel">Bejelentkezés / Regisztráció</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Tabok: Regisztráció / Bejelentkezés -->
+                <ul class="nav nav-tabs" id="authTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Bejelentkezés</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Regisztráció</button>
+                    </li>
+                </ul>
+
+                <!-- Tab tartalom -->
+                <div class="tab-content mt-3" id="authTabContent">
+                    <!-- Bejelentkezés form (felhasználónévvel) -->
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="loginUsername" class="form-label">Felhasználónév</label>
+                                <input type="text" class="form-control" id="loginUsername" placeholder="Adja meg felhasználónevét">
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Jelszó</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Adja meg jelszavát">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+                        </form>
+                    </div>
+
+                    <!-- Regisztráció form -->
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <form>
+                            <div class="mb-3">
+                                <label for="registerUsername" class="form-label">Felhasználónév</label>
+                                <input type="text" class="form-control" id="registerUsername" placeholder="Válasszon felhasználónevet">
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="Adja meg email címét">
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label">Jelszó</label>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="Válasszon jelszót">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Regisztráció</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
