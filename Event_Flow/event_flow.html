@@ -20,14 +20,14 @@
         <!-- Esemény szűrők és létrehozás -->
         <div class="d-flex justify-content-between mt-3">
         <button class="gomb btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
-        
-        <select class="form-select" id="eventFilter">
-            <option value="all">Esemény típus</option>
-            <option value="koncert">Koncert</option>
-            <option value="hazibuli">Házibuli</option>
-            <option value="kertiparty">Kerti Party</option>
-            <option value="rendezveny">Rendezvény</option>
-        </select>
+
+        <!-- Esemény típus szűrők külön navbar elemeként -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary" id="eventFilterAll">Esemény típus</button>
+            <button type="button" class="btn btn-secondary" id="eventFilterKoncert">Koncert</button>
+            <button type="button" class="btn btn-secondary" id="eventFilterHazibuli">Házibuli</button>
+            <button type="button" class="btn btn-secondary" id="eventFilterKertiparty">Kerti Party</button>
+            <button type="button" class="btn btn-secondary" id="eventFilterRendezveny">Rendezvény</button>
         </div>
         
         <!-- Bejelentkezés / Regisztráció -->
@@ -35,7 +35,7 @@
             <a href="#" class="btn login-btn blue" data-bs-toggle="modal" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span><i></i></a>
         </div>
 
-        
+    </div>
         
     </nav>
     
@@ -82,10 +82,14 @@
                 <div class="card-body">
                     <h5 class="card-title">Esemény címe</h5>
                     <p class="card-text">Helyszín: Budapest</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 150px;">Leírás: Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
+                    <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
+                    <p class="card-text"><small class="text-muted">Nyilvános esemény</small></p>
                 </div>
             </div>
         </div>
+
+        
+
     </div>
 </div>
 
@@ -113,12 +117,21 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="eventDesc" class="form-label">Leírás:</label>
-                        <textarea class="form-control" id="eventDesc" rows="3"></textarea>
+                        
+                        <label for="eventDesc"  class="form-label">Leírás:</label>
+                        
+                        <textarea maxlength="200" class="form-control" name="textarea" id="counter-input" rows="3"></textarea>
+                        <label for="counter-input" class="label" id="szamlalo"  style="font-style: italic; font-size: 13px;"><span id="counter-display" class="tag is-success">0</span>/200</label>
                     </div>
                     <div class="mb-3">
                         <label for="eventLocation" class="form-label">Helyszín:</label>
-                        <input type="text" class="form-control" id="eventLocation">
+                        <!--<input type="text" class="form-control" id="eventLocation" onchange="completeStreetName">-->
+                        
+                        <!-- Input mező onchange eseménnyel -->
+                        <input type="text" id="streetInput" placeholder="Részleges utca név" onchange="findFullStreetName()" />
+
+                        <!-- Kiegészített utca név vagy hibaüzenet -->
+                        <div id="result" class="result"></div>
                     </div>
                     <div class="mb-3">
                         <label for="eventImage" class="form-label">Kép:</label>

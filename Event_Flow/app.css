@@ -19,7 +19,9 @@ body {
     position: relative;
 }
 */
-
+#szamlalo{
+    float: right;
+}
 
 .login-btn {
     position: absolute;
