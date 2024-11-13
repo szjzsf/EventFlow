@@ -10,12 +10,35 @@
 <body>
     
 <!-- Főoldal kezdő tartalom -->
+
 <div class="container mt-5">
-   
-    <div class="slider text-center text-white d-flex justify-content-center align-items-center">
+
+    <!--NAVBAR-->
+    <nav class="navbar">
+        
+        
+        <!-- Esemény szűrők és létrehozás -->
+        <div class="d-flex justify-content-between mt-3">
+        <button class="gomb btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
+        
+        <select class="form-select" id="eventFilter">
+            <option value="all">Esemény típus</option>
+            <option value="koncert">Koncert</option>
+            <option value="hazibuli">Házibuli</option>
+            <option value="kertiparty">Kerti Party</option>
+            <option value="rendezveny">Rendezvény</option>
+        </select>
+        </div>
+        
         <!-- Bejelentkezés / Regisztráció -->
-        <a href="#" class="btn login-btn blue" data-bs-toggle="modal" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span><i></i></a>
-    </div>
+        <div class="slider text-center text-white d-flex justify-content-center align-items-center">
+            <a href="#" class="btn login-btn blue" data-bs-toggle="modal" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span><i></i></a>
+        </div>
+
+        
+        
+    </nav>
+    
 
     <!--            SLIDER              -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -47,30 +70,19 @@
         </button>
       </div>
 
-    <!-- Esemény szűrők és létrehozás -->
-    <div class="d-flex justify-content-between mt-3">
-        <button class="gomb btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
-        <select class="form-select w-25" id="eventFilter">
-            <option value="all">Esemény típus</option>
-            <option value="koncert">Koncert</option>
-            <option value="hazibuli">Házibuli</option>
-            <option value="kertiparty">Kerti Party</option>
-            <option value="rendezveny">Rendezvény</option>
-        </select>
-    </div>
 
     <!-- Eseménykártyák -->
     <div class="row mt-3" id="eventCards">
         <!-- Példa kártyák -->
         <div class="col-md-3 event-card">
             <div class="card">
-                <div class="event-image">
-                    <img src="IMG/grizzly.jpg" class="col-md-12">
+                <div>
+                    <img src="IMG/grizzly.jpg" class="card-img-top kartya-kep">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Esemény címe</h5>
                     <p class="card-text">Helyszín: Budapest</p>
-                    <p class="card-text">Leírás: Ez egy példa esemény leírása.</p>
+                    <p class="d-inline-block text-truncate card-text" style="max-width: 150px;">Leírás: Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
                 </div>
             </div>
         </div>
@@ -176,6 +188,10 @@
                             <div class="mb-3">
                                 <label for="registerPassword" class="form-label">Jelszó</label>
                                 <input type="password" class="form-control" id="registerPassword" placeholder="Válasszon jelszót">
+                            </div>
+                            <div class="mb-3">
+                                <label for="registerPassword" class="form-label">Jelszó mégegyszer</label>
+                                <input type="password" class="form-control" id="registerPasswordCheck" placeholder="Írja be a választott jelszót mégegyszer">
                             </div>
                             <button type="submit" class="btn btn-primary">Regisztráció</button>
                         </form>

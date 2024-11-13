@@ -50,12 +50,12 @@ document.getElementById('createEventBtn').addEventListener('click', function() {
             <div class="col-md-3 event-card">
                 <div class="card">
                     <div class="event-image">
-                    <img src="${imgSrc} " class="col-md-12" /> <!-- Use the image source from the input -->
+                    <img src="${imgSrc} " class="kartya-kep card-img-top" /> <!-- Use the image source from the input -->
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <p class="card-text">Helyszín: ${location}</p>
-                        <p class="card-text">Leírás: ${desc}</p>
+                        <p class="d-inline-block text-truncate card-text" style="max-width: 150px;">Leírás: ${desc}</p>
                         <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
                     </div>
                 </div>
