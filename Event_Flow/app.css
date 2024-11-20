@@ -124,3 +124,7 @@ a:hover i::after{
     left: 80%;
     color: var(--clr);
 }
+
+.dagat{
+    font-weight:600;
+}

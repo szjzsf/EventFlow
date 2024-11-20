@@ -2,7 +2,8 @@ document.getElementById('createEventBtn').addEventListener('click', function() {
     const name = document.getElementById('eventName').value;
     const type = document.getElementById('eventType').value;
     const desc = document.getElementById('eventDesc').value;
-    const location = document.getElementById('eventLocation').value;
+    const location = document.getElementById('Miskolc')+('streetInput').value+('streetInputNumber').value;
+    const date = document.getElementById('eventDate').value;
     const imgInput = document.getElementById('eventImage');
     const isPrivate = document.getElementById('privateEvent').checked;
 
@@ -20,7 +21,8 @@ document.getElementById('createEventBtn').addEventListener('click', function() {
                     <div class="card-body">
                         <h5 class="card-title">${name}</h5>
                         <p class="card-text">Helyszín: ${location}</p>
-                        <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
+                        <p class="card-text">Dátum: ${date}</p>
+                        <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">${desc}</p>
                         <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
                     </div>
                 </div>
@@ -42,7 +44,7 @@ document.getElementById('createEventBtn').addEventListener('click', function() {
 
 
 // A Google Maps API kulcs
-const apiKey = 'AIzaSyAiVVtoDyYhSXowhkK285z-U9mOB1z9FkA'; // Cseréld ki a saját API kulcsodra!
+/*const apiKey = 'AIzaSyAiVVtoDyYhSXowhkK285z-U9mOB1z9FkA'; // Cseréld ki a saját API kulcsodra!
 
 // Függvény a teljes utca név keresésére
 function findFullStreetName() {
@@ -106,7 +108,7 @@ function completeStreetName(partialStreetName, apiKey, callback) {
     .catch(error => {
       callback('Hiba történt a kérés feldolgozása során: ' + error, null);
     });
-}
+}*/
 
 (() => {
   const counter = (() => {
@@ -126,3 +128,81 @@ function completeStreetName(partialStreetName, apiKey, callback) {
   counter.init();
 
 })();
+
+/*function letrehozasCheck(){
+  let nev = document.getElementById('eventName').value;
+  let tipus = document.getElementById('eventType').value;
+  let leiras = document.getElementById('eventDesc').value;
+  let helyszin = document.getElementById('eventLocation').value;
+  let datum = document.getElementById('eventDate').value;
+  let kep = document.getElementById('eventImage').value;
+  let priv = document.getElementById('privateEvent').checked;
+
+  if(nev == "" || tipus == "" || leiras == "" || helyszin == "" || datum == "" || kep == "" ){
+    alert("Minden mező kitöltése kötelező!");
+  }
+  else{
+    alert("Az esemény sikeresen létrehozva!");
+  }
+}
+function regisztracioCheck(){
+  let felhnev = document.getElementById('username').value;
+  let email = document.getElementById('email').value;
+  let jelszo = document.getElementById('password').value;
+  let jelszo2 = document.getElementById('password2').value;
+
+  if(felhnev == "" || email == "" || jelszo == "" || jelszo2 == ""){
+    alert("Minden mező kitöltése kötelező!");
+  }
+  else if(jelszo != jelszo2){
+    alert("A két jelszó nem egyezik!");
+  }
+  else{
+    alert("Sikeres regisztráció!");
+  }
+}
+
+/*jQuery(function($) {
+  var $fields = $('#loginName, #loginPass');
+  
+  $fields.on('keyup change', function() {
+    if (allFilled($fields)) {
+       $('#add_prod_submit').removeAttr('disabled');
+    }
+  });
+
+  function allFilled($fields) 
+  {
+    return $fields.filter(function() {
+      return this.value === ''; 
+    }).length == 0;
+  }
+});*/
+
+jQuery(function($) {
+  var $fields = $('#loginName, #loginPass'); // A mezők kiválasztása
+  var $submitButton = $('#add_prod_submit'); // A submit gomb
+
+  // Kezdetben tiltsuk le a submit gombot
+  
+
+  // Ha bármelyik mező változik vagy billentyűt ütnek, ellenőrizzük
+  $fields.on('keyup change', function() {
+    // Ha minden mező ki van töltve, engedélyezzük a submit gombot
+    if (allFilled($fields)) {
+      $submitButton.prop('disabled', false);
+    } else {
+      $submitButton.prop('disabled', true);
+    }
+  });
+
+  // Segédfüggvény, hogy ellenőrizzük, hogy mindkét mező ki van-e töltve
+  /*function allFilled($fields) {
+    return $fields.filter(function() {
+      return $.trim(this.value) === '';  // Üres mezők ellenőrzése (esetleges whitespace-ekkel)
+    }).length === 0;
+  }*/
+
+
+});
+
