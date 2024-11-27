@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "name": "Event 1",
+        "image": "/IMG/grizzly.jpg",
+        "date": "2021-01-01",
+        "location": "Location 1",
+        "description": "Description 1"
+    },
+    {
+        "id": 2,
+        "name": "Event 2",
+        "image": "/IMG/helynekem.jpg",
+        "date": "2021-01-02",
+        "location": "Location 2",
+        "description": "Description 2"
+    },
+    {
+        "id": 3,
+        "name": "Event 3",
+        "image": "/IMG/rockwell.jpg",
+        "date": "2021-01-03",
+        "location": "Location 3",
+        "description": "Description 3",
+        "const": "Házi buli"
+    },
+    {
+        "id": 4,
+        "name": "Event 4",
+        "image": "/IMG/grizzly.jpg",
+        "date": "2021-01-04",
+        "location": "Location 4",
+        "description": "Description 4"
+    },
+    {
+        "id": 5,
+        "name": "Event 5",
+        "image": "/IMG/helynekem.jpg",
+        "date": "2021-01-05",
+        "location": "Location 5",
+        "description": "Description 5"
+    },
+    {
+        "id": 6,
+        "name": "Event 6",
+        "image": "/IMG/rockwell.jpg",
+        "date": "2021-01-06",
+        "location": "Location 6",
+        "description": "Description 6"
+    }
+  ]
