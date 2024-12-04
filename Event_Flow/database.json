@@ -21,8 +21,7 @@
         "image": "/IMG/rockwell.jpg",
         "date": "2021-01-03",
         "location": "Location 3",
-        "description": "Description 3",
-        "const": "Házi buli"
+        "description": "Description 3"
     },
     {
         "id": 4,
@@ -48,4 +47,4 @@
         "location": "Location 6",
         "description": "Description 6"
     }
-  ]
+]
