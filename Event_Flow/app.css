@@ -117,3 +117,27 @@ body {
 
 
 
+  .autocomplete-list {
+    position: absolute;
+    border: 1px solid #ddd;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1050; /* Higher than Bootstrap modal's z-index */
+    width: 93.5%;
+  }
+  
+  .autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .autocomplete-item:hover {
+    background-color: #f0f0f0;
+  }
+
+
+.mini-label{
+  font-size: 93%;
+  font-style: italic;
+}
