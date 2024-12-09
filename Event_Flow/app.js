@@ -1,12 +1,19 @@
 document.getElementById('createEventBtn').addEventListener('click', function () {
-  const name = document.getElementById('eventName').value;
-  const type = document.getElementById('eventType').value;
-  const desc = document.getElementById('eventDesc').value;
-  const utca = document.getElementById('UtcaNev').value;
-  const hazSzam = document.getElementById('Hazszam').value;
-  const imgInput = document.getElementById('eventImage');
-  const isPrivate = document.getElementById('privateEvent').checked;
+  const nameElement = document.getElementById('eventName');
+  const typeElement = document.getElementById('eventType');
+  const descElement = document.getElementById('counter-input'); 
+  const utcaElement = document.getElementById('UtcaNev');
+  const hazSzamElement = document.getElementById('Hazszam');
+  const imgInputElement = document.getElementById('eventImage');
+  const isPrivateElement = document.getElementById('privateEvent');
 
+  const name = nameElement ? nameElement.value : '';
+  const type = typeElement ? typeElement.value : '';
+  const desc = descElement ? descElement.value : '';
+  const utca = utcaElement ? utcaElement.value : '';
+  const hazSzam = hazSzamElement ? hazSzamElement.value : '';
+  const imgInput = imgInputElement ? imgInputElement : null;
+  const isPrivate = isPrivateElement ? isPrivateElement.checked : false;
 
   if (imgInput.files.length === 0) {
     alert('Please upload an image for the event!');
@@ -17,36 +24,9 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   reader.onload = function (e) {
     const imgSrc = e.target.result;
 
-    const newEvent = {
-      name: name,
-      type: type,
-      description: desc,
-      location: location,
-      image: imgSrc,
-      isPrivate: isPrivate,
-      date: new Date().toISOString().split('T')[0], // Example: Add today's date
-    };
-
-    // Send to server
-    fetch('/addEvent', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newEvent),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to save event');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        alert(data.message);
-
-        // Optionally, reload events or append the new one to the UI
-        document.getElementById('eventCards').innerHTML += `
-        <div class="col-md-3 event-card">
+    // Add event card
+    const eventCard = `
+     <div class="col-md-3 event-card">
         <div class="card">
           <div class="event-image">
             <img src="${imgSrc}" class="kartya-kep card-img-top" alt="Event Image" />
@@ -58,16 +38,20 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
           </div>
         </div>
-      </div>`;
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('Failed to save the event. Please try again later.');
-      });
+      </div>
+    `;
+
+    document.getElementById('eventCards').innerHTML += eventCard;
+
+    // Close modal
+    const modalElement = document.getElementById('createEventModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      if (modal) modal.hide();
+    }
   };
   reader.readAsDataURL(imgInput.files[0]);
 });
- 
 
 (() => {
   const counter = (() => {
@@ -99,7 +83,7 @@ fetch("./database.json")
   .then((data) => {
     console.log(data);
     data.forEach(function (event) {
-      const { imgSrc, name, location, desc, isPrivate } = event;
+      const { imgSrc, name, utca,hazSzam, desc, isPrivate } = event;
       document.getElementById('eventCards').innerHTML += `
       <div class="col-md-3 event-card">
         <div class="card">
@@ -117,57 +101,50 @@ fetch("./database.json")
     });
   });
 
-
-
-
-
-
-//LÉTREHOZÁS HELYSZÍN
-
-document.addEventListener("DOMContentLoaded", () => {
-  let streetNames = [];
-
-  // Fetch street names from the TXT file
-  fetch("Miskolc_utcanevek.txt")
-    .then(response => response.text())
-    .then(data => {
-      // Split the text file content into an array
-      streetNames = data.split("\n").map(name => name.trim());
-    })
-    .catch(error => console.error("Error fetching street names:", error));
-
-  const locationInput = document.getElementById("UtcaNev");
-  const autocompleteList = document.createElement("div");
-  autocompleteList.className = "autocomplete-list";
-  locationInput.parentElement.appendChild(autocompleteList);
-
-  // Autocomplete logic for the location input field
-  locationInput.addEventListener("input", () => {
-    const query = locationInput.value.toLowerCase();
-    autocompleteList.innerHTML = ""; // Clear previous suggestions
-
-    if (query) {
-      const matches = streetNames.filter(name => name.toLowerCase().includes(query));
-
-      matches.forEach(match => {
-        const item = document.createElement("div");
-        item.className = "autocomplete-item";
-        item.textContent = match;
-
-        item.addEventListener("click", () => {
-          locationInput.value = match;
-          autocompleteList.innerHTML = ""; // Clear suggestions
+  document.addEventListener("DOMContentLoaded", () => {
+    let streetNames = [];
+  
+    // Fetch street names from the TXT file
+    fetch("Miskolc_utcanevek.txt")
+      .then(response => response.text())
+      .then(data => {
+        // Split the text file content into an array
+        streetNames = data.split("\n").map(name => name.trim());
+      })
+      .catch(error => console.error("Error fetching street names:", error));
+  
+    const locationInput = document.getElementById("UtcaNev");
+    const autocompleteList = document.createElement("div");
+    autocompleteList.className = "autocomplete-list";
+    locationInput.parentElement.appendChild(autocompleteList);
+  
+    // Autocomplete logic for the location input field
+    locationInput.addEventListener("input", () => {
+      const query = locationInput.value.toLowerCase();
+      autocompleteList.innerHTML = ""; // Clear previous suggestions
+  
+      if (query) {
+        const matches = streetNames.filter(name => name.toLowerCase().includes(query));
+  
+        matches.forEach(match => {
+          const item = document.createElement("div");
+          item.className = "autocomplete-item";
+          item.textContent = match;
+  
+          item.addEventListener("click", () => {
+            locationInput.value = match;
+            autocompleteList.innerHTML = ""; // Clear suggestions
+          });
+  
+          autocompleteList.appendChild(item);
         });
-
-        autocompleteList.appendChild(item);
-      });
-    }
+      }
+    });
+  
+    // Close the autocomplete list when clicking outside the input
+    document.addEventListener("click", (event) => {
+      if (!locationInput.contains(event.target) && !autocompleteList.contains(event.target)) {
+        autocompleteList.innerHTML = ""; // Clear suggestions
+      }
+    });
   });
-
-  // Close the autocomplete list when clicking outside the input
-  document.addEventListener("click", (event) => {
-    if (!locationInput.contains(event.target) && !autocompleteList.contains(event.target)) {
-      autocompleteList.innerHTML = ""; // Clear suggestions
-    }
-  });
-});

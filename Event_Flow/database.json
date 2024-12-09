@@ -2,49 +2,60 @@
     {
         "id": 1,
         "name": "Event 1",
-        "image": "./IMG/grizzly.jpg",
+        "imgSrc": "./IMG/grizzly.jpg",
         "date": "2021-01-01",
+        "utca": "Street 1",
+        "hazSzam": "Number 1",
         "location": "Location 1",
-        "description": "Description 1"
+        "desc": "Description 1"
     },
     {
         "id": 2,
         "name": "Event 2",
-        "image": "/IMG/helynekem.jpg",
+        "imgSrc": "./IMG/helynekem.jpg",
         "date": "2021-01-02",
+        "utca": "Street 2",
+        "hazSzam": "Number 2",
         "location": "Location 2",
-        "description": "Description 2"
+        "desc": "Description 2"
     },
     {
         "id": 3,
         "name": "Event 3",
-        "image": "/IMG/rockwell.jpg",
+        "imgSrc": "./IMG/rockwell.jpg",
         "date": "2021-01-03",
+        "utca": "Street 3",
+        "hazSzam": "Number 3",
         "location": "Location 3",
-        "description": "Description 3"
+        "desc": "Description 3"
     },
     {
         "id": 4,
         "name": "Event 4",
-        "image": "/IMG/grizzly.jpg",
+        "imgSrc": "./IMG/grizzly.jpg",
         "date": "2021-01-04",
+        "utca": "Street 4",
+        "hazSzam": "Number 4",
         "location": "Location 4",
-        "description": "Description 4"
+        "desc": "Description 4"
     },
     {
         "id": 5,
         "name": "Event 5",
-        "image": "/IMG/helynekem.jpg",
+        "imgSrc": "./IMG/helynekem.jpg",
         "date": "2021-01-05",
+        "utca": "Street 5",
+        "hazSzam": "Number 5",
         "location": "Location 5",
-        "description": "Description 5"
+        "desc": "Description 5"
     },
     {
         "id": 6,
         "name": "Event 6",
-        "image": "/IMG/rockwell.jpg",
+        "imgSrc": "./IMG/rockwell.jpg",
         "date": "2021-01-06",
-        "location": "Location 6",
-        "description": "Description 6"
+        "utca": "Street 6",
+        "hazSzam": "Number 6",
+        "desc": "Description 6"
     }
 ]
