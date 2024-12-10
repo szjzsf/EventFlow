@@ -6,6 +6,8 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   const hazSzamElement = document.getElementById('Hazszam');
   const imgInputElement = document.getElementById('eventImage');
   const isPrivateElement = document.getElementById('privateEvent');
+  const dateElement = document.getElementById('eventDate');
+  const eventTimeElement = document.getElementById('eventTime');
 
   const name = nameElement ? nameElement.value : '';
   const type = typeElement ? typeElement.value : '';
@@ -14,6 +16,8 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   const hazSzam = hazSzamElement ? hazSzamElement.value : '';
   const imgInput = imgInputElement ? imgInputElement : null;
   const isPrivate = isPrivateElement ? isPrivateElement.checked : false;
+  const date = dateElement ? dateElement.value : '';
+  const time = eventTimeElement ? eventTimeElement.value : '';
 
   if (imgInput.files.length === 0) {
     alert('Please upload an image for the event!');
@@ -33,6 +37,7 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
           </div>
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
+            <p class="card-text">Dátum: ${date} ${time}</p>
             <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
             <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
@@ -83,7 +88,7 @@ fetch("./database.json")
   .then((data) => {
     console.log(data);
     data.forEach(function (event) {
-      const { imgSrc, name, utca,hazSzam, desc, isPrivate } = event;
+      const { imgSrc, name,date,time, utca,hazSzam, desc, isPrivate } = event;
       document.getElementById('eventCards').innerHTML += `
       <div class="col-md-3 event-card">
         <div class="card">
@@ -92,6 +97,7 @@ fetch("./database.json")
           </div>
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
+            <p class="card-text">Dátum: ${date} ${time}</p>
             <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
             <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>

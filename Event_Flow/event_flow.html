@@ -74,78 +74,8 @@
 
     <!-- Eseménykártyák -->
     <div class="row mt-3" id="eventCards">
-        <!-- Példa kártyák -->
-        <div class="col-md-3 event-card">
-            <div class="card">
-                <div>
-                    <img src="IMG/grizzly.jpg" class="card-img-top kartya-kep">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Esemény címe</h5>
-                    <p class="card-text">Helyszín: Miskolc</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
-                    <p class="card-text"><small class="text-muted">Nyilvános esemény</small></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 event-card">
-            <div class="card">
-                <div>
-                    <img src="IMG/helynekem.jpg" class="card-img-top kartya-kep">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Esemény címe</h5>
-                    <p class="card-text">Helyszín: Miskolc</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
-                    <p class="card-text"><small class="text-muted">Nyilvános esemény</small></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 event-card">
-            <div class="card">
-                <div>
-                    <img src="IMG//rockwell.jpg" class="card-img-top kartya-kep">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Esemény címe</h5>
-                    <p class="card-text">Helyszín: Miskolc</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
-                    <p class="card-text"><small class="text-muted">Privát esemény</small></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 event-card">
-            <div class="card">
-                <div>
-                    <img src="IMG//helynekem.jpg" class="card-img-top kartya-kep">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Esemény címe</h5>
-                    <p class="card-text">Helyszín: Miskolc</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
-                    <p class="card-text"><small class="text-muted">Nyilvános esemény</small></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 event-card">
-            <div class="card">
-                <div>
-                    <img src="IMG/grizzly.jpg" class="card-img-top kartya-kep">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Esemény címe</h5>
-                    <p class="card-text">Helyszín: Miskolc</p>
-                    <p class="d-inline-block text-truncate card-text" style="max-width: 100%;">Ez egy példa esemény leírásaclass="d-inline-block text-truncate" style="max-width: 150px;"class="d-inline-block ext-truncate" style="max-width: 150px;".</p>
-                    <p class="card-text"><small class="text-muted">Nyilvános esemény</small></p>
-                </div>
-            </div>
-        </div>
-
     </div>
+    
 </div>
 
 
@@ -192,6 +122,13 @@
                         <p for="UtcaNev" class="mini-label">Utca:</p>
                         <input type="text" class="form-control" id="UtcaNev" required>
                         
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventDate" class="form-label">Dátum:</label>
+                        <input type="date" class="form-control" id="eventDate" required>
+                        <br>
+                        <label for="eventDate" class="form-label">Idő:</label>
+                        <input type="time" class="form-control" id="eventTime" required>
                     </div>
 
                     <!--<div class="mb-3"> <label for="eventDate" class="form-label">Dátum:</label> <input type="date" class="form-control" id="eventDate"> </div>-->
@@ -285,23 +222,22 @@
         <div class="row">
             <!-- About Us Section -->
             <div class="col-md-4">
-                <h5>About Us</h5>
+                <h5>Rólunk</h5>
                 <p>
-                    Event Flow is your go-to platform for finding and creating events. Whether it’s a concert, private party, or a professional gathering, we make it easier for you to connect with the events that matter to you.
-                </p>
+                    Az Event Flow a legjobb  esemény kereső és létrehozó platform Miskolcon. Legyen szó koncertről, zártkörű buliról vagy összejövetelről, mi megkönnyítjük a kapcsolatot az Ön számára fontos eseményekkel.</p>
             </div>
             <!-- Contact Information -->
             <div class="col-md-4">
-                <h5>Contact Us</h5>
+                <h5>Elérhetőségeink</h5>
                 <ul class="list-unstyled">
                     <li>Email: <a href="mailto:info@eventflow.com" class="text-white">info@eventflow.com</a></li>
-                    <li>Phone: +36 70 123 4567</li>
-                    <li>Address: Miskolc, Hungary</li>
+                    <li>Telefon: +36 70 123 4567</li>
+                    <li>Cím: Miskolc, Palóczy László utca 3, 3525</li>
                 </ul>
             </div>
             <!-- Social Media Links -->
             <div class="col-md-4">
-                <h5>Follow Us</h5>
+                <h5>Kövess minket</h5>
                 <ul class="list-inline">
                     <li class="list-inline-item">
                         <a href="#" class="text-white">
@@ -323,7 +259,7 @@
         </div>
     </div>
     <div class="text-center bg-secondary py-2">
-        <small>© 2024 Event Flow. All rights reserved.</small>
+        <small>© 2024 Event Flow. Minden jog fenntartva.</small>
     </div>
 </footer>
 </div>

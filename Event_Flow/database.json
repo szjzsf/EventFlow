@@ -6,8 +6,9 @@
         "date": "2021-01-01",
         "utca": "Street 1",
         "hazSzam": "Number 1",
-        "location": "Location 1",
-        "desc": "Description 1"
+        
+        "desc": "Description 1",
+        "time": "10:00"
     },
     {
         "id": 2,
@@ -16,8 +17,9 @@
         "date": "2021-01-02",
         "utca": "Street 2",
         "hazSzam": "Number 2",
-        "location": "Location 2",
-        "desc": "Description 2"
+        
+        "desc": "Description 2",
+        "time": "16:00"
     },
     {
         "id": 3,
@@ -26,8 +28,9 @@
         "date": "2021-01-03",
         "utca": "Street 3",
         "hazSzam": "Number 3",
-        "location": "Location 3",
-        "desc": "Description 3"
+        
+        "desc": "Description 3",
+        "time": "12:00"
     },
     {
         "id": 4,
@@ -36,8 +39,9 @@
         "date": "2021-01-04",
         "utca": "Street 4",
         "hazSzam": "Number 4",
-        "location": "Location 4",
-        "desc": "Description 4"
+        
+        "desc": "Description 4",
+        "time": "10:00"
     },
     {
         "id": 5,
@@ -46,8 +50,9 @@
         "date": "2021-01-05",
         "utca": "Street 5",
         "hazSzam": "Number 5",
-        "location": "Location 5",
-        "desc": "Description 5"
+        
+        "desc": "Description 5",
+        "time": "21:00"
     },
     {
         "id": 6,
@@ -56,6 +61,8 @@
         "date": "2021-01-06",
         "utca": "Street 6",
         "hazSzam": "Number 6",
-        "desc": "Description 6"
+        "desc": "Description 6",
+        "time": "23:00"
+
     }
 ]
