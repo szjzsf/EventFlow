@@ -8,6 +8,7 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   const isPrivateElement = document.getElementById('privateEvent');
   const dateElement = document.getElementById('eventDate');
   const eventTimeElement = document.getElementById('eventTime');
+  
 
   const name = nameElement ? nameElement.value : '';
   const type = typeElement ? typeElement.value : '';
@@ -20,7 +21,7 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   const time = eventTimeElement ? eventTimeElement.value : '';
 
   if (imgInput.files.length === 0) {
-    alert('Please upload an image for the event!');
+    alert('Adj meg egy képet az eseményről!');
     return;
   }
 
@@ -37,9 +38,10 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
           </div>
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
-            <p class="card-text">Dátum: ${date} ${time}</p>
+            <p class="card-text">Dátum: ${date}, ${time}</p>
             <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
             <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
+            <p class="card-text">${type}</p>
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
           </div>
         </div>
@@ -88,7 +90,7 @@ fetch("./database.json")
   .then((data) => {
     console.log(data);
     data.forEach(function (event) {
-      const { imgSrc, name,date,time, utca,hazSzam, desc, isPrivate } = event;
+      const { imgSrc, name,date,time, utca,hazSzam,type, desc, isPrivate } = event;
       document.getElementById('eventCards').innerHTML += `
       <div class="col-md-3 event-card">
         <div class="card">
@@ -97,9 +99,10 @@ fetch("./database.json")
           </div>
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
-            <p class="card-text">Dátum: ${date} ${time}</p>
+            <p class="card-text">Dátum: ${date}, ${time}</p>
             <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
             <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
+            <p class="card-text">${type}</p>
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
           </div>
         </div>
@@ -107,28 +110,30 @@ fetch("./database.json")
     });
   });
 
+  
+  
   document.addEventListener("DOMContentLoaded", () => {
     let streetNames = [];
-  
+    
     // Fetch street names from the TXT file
     fetch("Miskolc_utcanevek.txt")
-      .then(response => response.text())
-      .then(data => {
+    .then(response => response.text())
+    .then(data => {
         // Split the text file content into an array
         streetNames = data.split("\n").map(name => name.trim());
       })
       .catch(error => console.error("Error fetching street names:", error));
-  
-    const locationInput = document.getElementById("UtcaNev");
-    const autocompleteList = document.createElement("div");
-    autocompleteList.className = "autocomplete-list";
+      
+      const locationInput = document.getElementById("UtcaNev");
+      const autocompleteList = document.createElement("div");
+      autocompleteList.className = "autocomplete-list";
     locationInput.parentElement.appendChild(autocompleteList);
-  
+    
     // Autocomplete logic for the location input field
     locationInput.addEventListener("input", () => {
       const query = locationInput.value.toLowerCase();
       autocompleteList.innerHTML = ""; // Clear previous suggestions
-  
+      
       if (query) {
         const matches = streetNames.filter(name => name.toLowerCase().includes(query));
   
@@ -136,7 +141,7 @@ fetch("./database.json")
           const item = document.createElement("div");
           item.className = "autocomplete-item";
           item.textContent = match;
-  
+          
           item.addEventListener("click", () => {
             locationInput.value = match;
             autocompleteList.innerHTML = ""; // Clear suggestions
@@ -146,11 +151,63 @@ fetch("./database.json")
         });
       }
     });
-  
+    
     // Close the autocomplete list when clicking outside the input
     document.addEventListener("click", (event) => {
       if (!locationInput.contains(event.target) && !autocompleteList.contains(event.target)) {
         autocompleteList.innerHTML = ""; // Clear suggestions
       }
     });
+  });
+  
+  document.getElementById("eventFilterKoncert").addEventListener("click", () => {
+    const eventCards = document.getElementsByClassName("event-card");
+    
+    for (let card of eventCards) {
+      if (card.textContent.toLowerCase().includes("koncert")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+  document.getElementById("eventFilterHazibuli").addEventListener("click", () => {
+    const eventCards = document.getElementsByClassName("event-card");
+  
+    for (let card of eventCards) {
+      if (card.textContent.toLowerCase().includes("házibuli")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+  document.getElementById("eventFilterKertiparty").addEventListener("click", () => {
+    const eventCards = document.getElementsByClassName("event-card");
+    
+    for (let card of eventCards) {
+      if (card.textContent.toLowerCase().includes("kerti party")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+  document.getElementById("eventFilterRendezveny").addEventListener("click", () => {
+    const eventCards = document.getElementsByClassName("event-card");
+    
+    for (let card of eventCards) {
+      if (card.textContent.toLowerCase().includes("rendezvény")) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
+  });
+  document.getElementById("eventFilterOsszes").addEventListener("click", () => {
+    const eventCards = document.getElementsByClassName("event-card");
+    
+    for (let card of eventCards) {
+      card.style.display = "block";
+    }
   });

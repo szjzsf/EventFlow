@@ -1,68 +1,69 @@
 [
     {
         "id": 1,
-        "name": "Event 1",
-        "imgSrc": "./IMG/grizzly.jpg",
-        "date": "2021-01-01",
-        "utca": "Street 1",
-        "hazSzam": "Number 1",
-        
-        "desc": "Description 1",
-        "time": "10:00"
+        "name": "LAZARVS",
+        "imgSrc": "./IMG/Kartyak/LAZARVS.jpg",
+        "date": "2025-01-11",
+        "utca": "Széchenyi István utca",
+        "hazSzam": "30",
+        "type": "Koncert",
+        "desc": "LAZARVS, vendég: Omega Diatribe",
+        "time": "20:00"
     },
     {
         "id": 2,
-        "name": "Event 2",
-        "imgSrc": "./IMG/helynekem.jpg",
-        "date": "2021-01-02",
-        "utca": "Street 2",
-        "hazSzam": "Number 2",
-        
-        "desc": "Description 2",
-        "time": "16:00"
+        "name": "COPY CON",
+        "imgSrc": "./IMG/Kartyak/COPYCON.jpg",
+        "date": "2025-01-18",
+        "utca": "Széchenyi István utca",
+        "hazSzam": "30",
+        "type": "Koncert",
+        "desc": "Hosszú hosszú évek teltek el mióta utoljára klub koncertet adott Miskolcon COPY CON. Most január 18.-án a Helynekem színpadán újra felcsendülnek a már jól ismert dallamok és egy hatalmas bulival készül a csapat. A jó hangulatot a Reggae Expressz szállítja!",
+        "time": "20:00"
     },
     {
         "id": 3,
-        "name": "Event 3",
-        "imgSrc": "./IMG/rockwell.jpg",
-        "date": "2021-01-03",
-        "utca": "Street 3",
-        "hazSzam": "Number 3",
-        
-        "desc": "Description 3",
-        "time": "12:00"
+        "name": "Csaknekedkislány",
+        "imgSrc": "./IMG/Kartyak/CSNK.jpg",
+        "date": "2021-02-01",
+        "utca": "Széchenyi István utca",
+        "hazSzam": "30",
+        "type": "Koncert",
+        "desc": "A Kraken nem alszik téli álmot, szóval készüljetek: jön a téli Csaknekedkislány vigadalom Miskolcon! vendég: SEMMI",
+        "time": "19:00"
     },
     {
         "id": 4,
-        "name": "Event 4",
-        "imgSrc": "./IMG/grizzly.jpg",
-        "date": "2021-01-04",
-        "utca": "Street 4",
-        "hazSzam": "Number 4",
-        
-        "desc": "Description 4",
-        "time": "10:00"
+        "name": "AWS",
+        "imgSrc": "./IMG/Kartyak/AWS.jpg",
+        "date": "2021-02-07",
+        "utca": "Széchenyi István utca",
+        "hazSzam": "30",
+        "type": "Koncert",
+        "desc": "Az élet olyan, mint egy társasjáték. A célig repíthet minket a szerencse, egy helyben topoghatunk a rossz lapok miatt, vagy akár a győzelem előtt visszakerülhetünk a start mezőre újrakezdeni az egészet. 2024 májusban megjelent a zenekar mostani felállásának első nagylemeze, Innen szép nyerni címmel, melyet most országjáró turné keretein belül mutatnak be a Vodka For Kids zenekar társaságában.",
+        "time": "20:00"
     },
     {
         "id": 5,
-        "name": "Event 5",
-        "imgSrc": "./IMG/helynekem.jpg",
-        "date": "2021-01-05",
-        "utca": "Street 5",
-        "hazSzam": "Number 5",
-        
-        "desc": "Description 5",
-        "time": "21:00"
+        "name": "Házibuli",
+        "imgSrc": "./IMG/Kartyak/kobi.jpg",
+        "date": "2025-07-21",
+        "utca": "Baráthegyalja utca",
+        "hazSzam": "5",
+        "type": "Házibuli",
+        "desc": "Gyertek, bulizzunk együtt! Aki szeretne, hozzon magával inni/ennivalót! :)",
+        "time": "18:30"
     },
     {
         "id": 6,
-        "name": "Event 6",
-        "imgSrc": "./IMG/rockwell.jpg",
-        "date": "2021-01-06",
-        "utca": "Street 6",
-        "hazSzam": "Number 6",
-        "desc": "Description 6",
-        "time": "23:00"
+        "name": "Csengey Kerti Party",
+        "imgSrc": "./IMG/Kartyak/Csengey.png",
+        "date": "2024-08-18",
+        "utca": "Csengey Gusztáv utca",
+        "hazSzam": "1",
+        "type": "Kerti Party",
+        "desc": "🕺 Étel, ital, dínom-dánom 💃 ~A MÜHA és MKK közreműködésével~",
+        "time": "17:00"
 
     }
 ]
