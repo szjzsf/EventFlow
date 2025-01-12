@@ -14,32 +14,6 @@
 <!-- Főoldal kezdő tartalom -->
 
 <div class="container mt-5">
-    <!--NAVBAR-->
-    <nav class="navbar">
-        
-        
-        <!-- Esemény szűrők és létrehozás -->
-        <div class="d-flex justify-content-between mt-3">
-        <button class="gomb btn btn-primary" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
-
-        <!-- Esemény típus szűrők külön navbar elemeként -->
-        <div class="btn-group" role="group" style="justify-items: center;">
-            <button type="button" class="btn btn-secondary" id="eventFilterOsszes">Összes esemény</button>
-            <button type="button" class="btn btn-secondary" id="eventFilterKoncert">Koncert</button>
-            <button type="button" class="btn btn-secondary" id="eventFilterHazibuli">Házibuli</button>
-            <button type="button" class="btn btn-secondary" id="eventFilterKertiparty">Kerti Party</button>
-            <button type="button" class="btn btn-secondary" id="eventFilterRendezveny">Rendezvény</button>
-        </div>
-        
-        <!-- Bejelentkezés / Regisztráció -->
-        <div class="slider text-center text-white d-flex justify-content-center align-items-center">
-            <a href="#" class="button-19" data-bs-toggle="modal" style="justify-content: right;" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span></a>
-        </div>
-
-    </div>
-        
-    </nav>
-    
 
     <!--            SLIDER              -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -71,7 +45,32 @@
         </button>
       </div>
 
-
+    <!--NAVBAR-->
+    <nav class="navbar">
+        
+        <!-- Esemény szűrők és létrehozás -->
+        <div class="d-flex justify-content-between mt-3 w-100">
+            <div>
+                <button class="create-button" data-bs-toggle="modal" data-bs-target="#createEventModal">Létrehozás</button>
+                
+                <!-- Esemény típus szűrők külön navbar elemeként -->
+                <div class="btn-group" role="group" style="justify-items: center;">
+                    <button type="button" class="btn btn-secondary" id="eventFilterOsszes">Összes esemény</button>
+                    <button type="button" class="btn btn-secondary" id="eventFilterKoncert">Koncert</button>
+                    <button type="button" class="btn btn-secondary" id="eventFilterHazibuli">Házibuli</button>
+                    <button type="button" class="btn btn-secondary" id="eventFilterKertiparty">Kerti Party</button>
+                    <button type="button" class="btn btn-secondary" id="eventFilterRendezveny">Rendezvény</button>
+                </div>
+            </div>
+            
+            <!-- Bejelentkezés / Regisztráció -->
+            <div class="d-flex align-items-center">
+                <a href="#" class="custom-button" data-bs-toggle="modal" data-bs-target="#authModal"><span>Bejelentkezés / Regisztráció</span></a>
+            </div>
+        </div>
+        
+    </nav>
+    
     <!-- Eseménykártyák -->
     <div class="row mt-3" id="eventCards">
     </div>

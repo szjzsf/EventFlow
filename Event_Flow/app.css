@@ -2,15 +2,22 @@
 
 
 body {
-    /*background-color: #363636;*/
-    background-image: url(IMG/blue.png);
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    
+  background: linear-gradient(to bottom, #e1b382, #c89666, #2d545e, #12343b);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: black; /* Adjust text color for better readability */
 }
+
+/*
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}*/
+
 
 /*
 .slider {
@@ -49,7 +56,7 @@ body {
 .dagat{
     font-weight:600;
 }
-
+/*
 .button-19 {
     appearance: button;
     background-color: #1899D6;
@@ -114,7 +121,7 @@ body {
     border-width: 4px 0 0;
     background: none;
   }
-
+*/
 
 
   .autocomplete-list {
@@ -158,4 +165,106 @@ main {
 footer {
   flex-shrink: 0; /* Ensures the footer stays at the bottom */
   width: 100%;
+}
+
+
+/*Kartya-design*/
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.modal-desc {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/*Login design*/
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  background-color: #004085;
+  transform: scale(0.95);
+}
+
+/*Create event design*/
+.create-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-button:active {
+  background-color: #1e7e34;
+  transform: scale(0.95);
 }

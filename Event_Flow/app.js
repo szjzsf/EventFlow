@@ -19,6 +19,7 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
   const isPrivate = isPrivateElement ? isPrivateElement.checked : false;
   const date = dateElement ? dateElement.value : '';
   const time = eventTimeElement ? eventTimeElement.value : '';
+  
 
   if (imgInput.files.length === 0) {
     alert('Adj meg egy képet az eseményről!');
@@ -27,29 +28,49 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
 
   const reader = new FileReader();
   reader.onload = function (e) {
-    const imgSrc = e.target.result;
+  const imgSrc = e.target.result;
+  const modalId = `modal-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  const shortDesc = desc.length > 100 ? `${desc.substring(0, 100)}...` : desc;
+  
+   // Add event card
+  const eventCard = `
+  <div class="col-md-3 event-card">
+     <div class="card h-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
+       <div class="event-image">
+         <img src="${imgSrc}" class="kartya-kep card-img-top" alt="Event Image" />
+       </div>
+       <div class="card-body d-flex flex-column">
+         <h5 class="card-title">${name}</h5>
+         <p class="card-text flex-grow-1">${shortDesc}</p>
+         <p class="card-text"><strong>${type}</strong></p>
+         <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
+       </div>
+     </div>
+   </div>
 
-    // Add event card
-    const eventCard = `
-     <div class="col-md-3 event-card">
-        <div class="card">
-          <div class="event-image">
-            <img src="${imgSrc}" class="kartya-kep card-img-top" alt="Event Image" />
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <p class="card-text">Dátum: ${date}, ${time}</p>
-            <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
-            <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
-            <p class="card-text">${type}</p>
-            <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
-          </div>
-        </div>
-      </div>
-    `;
-
+   <!-- Modal -->
+   <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="${modalId}Label">${name}</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+           <img src="${imgSrc}" class="img-fluid mb-3" alt="Event Image" />
+           <p><strong>Dátum:</strong> ${date}, ${time}</p>
+           <p><strong>Helyszín:</strong> Miskolc, ${utca}, ${hazSzam}</p>
+           <p><strong>Leírás:</strong> <span class="modal-desc">${desc}</span></p>
+           <p><strong>Típus:</strong> ${type}</p>
+           <p><strong>Státusz:</strong> ${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</p>
+         </div>
+       </div>
+     </div>
+   </div>
+ `;
+  
     document.getElementById('eventCards').innerHTML += eventCard;
-
+  
     // Close modal
     const modalElement = document.getElementById('createEventModal');
     if (modalElement) {
@@ -58,7 +79,7 @@ document.getElementById('createEventBtn').addEventListener('click', function () 
     }
   };
   reader.readAsDataURL(imgInput.files[0]);
-});
+  });
 
 (() => {
   const counter = (() => {
@@ -90,23 +111,44 @@ fetch("./database.json")
   .then((data) => {
     console.log(data);
     data.forEach(function (event) {
-      const { imgSrc, name,date,time, utca,hazSzam,type, desc, isPrivate } = event;
+      const { imgSrc, name, date, time, utca, hazSzam, type, desc, isPrivate } = event;
+      const modalId = `modal-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      const shortDesc = desc.length > 100 ? `${desc.substring(0, 100)}...` : desc;
       document.getElementById('eventCards').innerHTML += `
       <div class="col-md-3 event-card">
-        <div class="card">
+        <div class="card h-100" data-bs-toggle="modal" data-bs-target="#${modalId}">
           <div class="event-image">
             <img src="${imgSrc}" class="kartya-kep card-img-top" alt="Event Image" />
           </div>
-          <div class="card-body">
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title">${name}</h5>
-            <p class="card-text">Dátum: ${date}, ${time}</p>
-            <p class="card-text">Helyszín: Miskolc, ${utca}, ${hazSzam}</p>
-            <p class="d-inline-block text-truncate card-text" style="max-width: 275px;">${desc}</p>
-            <p class="card-text">${type}</p>
+            <p class="card-text flex-grow-1">${shortDesc}</p>
+            <p class="card-text"><strong>${type}</strong></p>
             <p class="card-text"><small class="text-muted">${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</small></p>
           </div>
         </div>
-      </div>`;
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="${modalId}Label">${name}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="${imgSrc}" class="img-fluid mb-3" alt="Event Image" />
+              <p><strong>Dátum:</strong> ${date}, ${time}</p>
+              <p><strong>Helyszín:</strong> Miskolc, ${utca}, ${hazSzam}</p>
+              <p><strong>Leírás:</strong> <span class="modal-desc">${desc}</span></p>
+              <p><strong>Típus:</strong> ${type}</p>
+              <p><strong>Státusz:</strong> ${isPrivate ? 'Privát esemény' : 'Nyilvános esemény'}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
     });
   });
 

@@ -64,6 +64,17 @@
         "type": "Kerti Party",
         "desc": "🕺 Étel, ital, dínom-dánom 💃 ~A MÜHA és MKK közreműködésével~",
         "time": "17:00"
-
+    },
+    {
+        "id": 7,
+        "name": "Miskolci Piknik",
+        "imgSrc": "./IMG/Kartyak/miskolci-piknik.jpg",
+        "date": "2024-09-20",
+        "utca": "Városház tér",
+        "hazSzam": "1",
+        "type": "Rendezvény",
+        "desc": "Az egész belvárost behálózó Miskolci Piknik nem csupán egy gasztronómiai ünnep, hanem egy érzelmekkel, ízekkel és hangokkal gazdagított közösségi esemény. Kóstoló a városban és a környéken termett vagy készült finomságokból, és nagy falat az ország könnyűzenei életéből. A város lakói és látogatói együtt buliznak, közösen ünneplik a helyi ízeket és identitást.",
+        "time": "20:00"
     }
+
 ]
