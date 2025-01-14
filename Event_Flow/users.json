@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "username": "szjzsf",
+        "password": "asdasd",
+        "email": "szalonnaj@kkszki.hu"
+    },
+    {
+        "id": 2,
+        "username": "csigusz",
+        "password": "1234",
+        "email": "kosaa@kkszki.hu"
+    },
+    {
+        "id": 3,
+        "username": "Szabika",
+        "password": "csiger<333",
+        "email": "zelenaksz@kkszki.hu"
+    }
+]

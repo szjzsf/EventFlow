@@ -253,3 +253,44 @@ fetch("./database.json")
       card.style.display = "block";
     }
   });
+
+
+// ...existing code...
+
+// login
+function login(username, password) {
+  // Fetch the users data from the JSON file
+  fetch('./users.json')
+    .then(response => response.json())
+    .then(users => {
+      // Find the user with the matching username and password
+      const user = users.find(user => user.username === username && user.password === password);
+      
+      if (user) {
+        alert('Sikeres bejelentkezés');
+        // Perform actions after successful login
+      } else {
+        alert('Hibás felhasználónév vagy jelszó');
+        // Perform actions after failed login
+      }
+    })
+    .catch(error => {
+      console.error('Unexpected error occurred:', error);
+    });
+}
+
+// Ensure the DOM is fully loaded before adding event listeners
+
+
+  const loginBtn = document.getElementById('loginBtn');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      login(username, password);
+    });
+  }
+
+    
+

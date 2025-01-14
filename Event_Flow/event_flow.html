@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Flow</title>
+    <link rel="icon" type="image/x-icon" href="IMG/calendar.png">
     <link rel="stylesheet" href="app.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -35,7 +36,8 @@
 <div class="container mt-5">
 
     <!--            SLIDER              -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+        
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -196,13 +198,13 @@
                         <form>
                             <div class="mb-3">
                                 <label for="loginUsername" class="form-label">Felhasználónév</label>
-                                <input type="text" class="form-control" name="loginName[]" id="loginUsername" placeholder="Adja meg felhasználónevét" required>
+                                <input type="text" class="form-control" name="loginUsername" id="loginUsername" placeholder="Adja meg felhasználónevét" required>
                             </div>
                             <div class="mb-3">
                                 <label for="loginPassword" class="form-label">Jelszó</label>
-                                <input type="password" class="form-control" name="loginPass[]" id="loginPassword" placeholder="Adja meg jelszavát" required>
+                                <input type="password" class="form-control" name="loginPassword" id="loginPassword" placeholder="Adja meg jelszavát" required>
                             </div>
-                            <button type="submit"  class="btn btn-primary" id="add_prod_submit" >Bejelentkezés</button>
+                            <button type="button"  class="btn btn-primary"  id="loginBtn" >Bejelentkezés</button>
                         </form>
                     </div>
 
