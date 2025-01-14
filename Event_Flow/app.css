@@ -9,24 +9,12 @@ body {
   align-items: center;
   min-height: 100vh;
   color: black; /* Adjust text color for better readability */
+  margin: 0;
+  padding: 0;
+  
 }
 
 
-/*
-.container {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-}*/
-
-
-/*
-.slider {
-    background: url('IMG/grizzly.jpg') center/cover no-repeat;
-    height: 300px;
-    position: relative;
-}
-*/
 #szamlalo{
     float: right;
 }
@@ -57,73 +45,6 @@ body {
 .dagat{
     font-weight:600;
 }
-/*
-.button-19 {
-    appearance: button;
-    background-color: #1899D6;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: din-round,sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 13px 16px;
-    text-align: center;
-    text-transform: uppercase;
-    touch-action: manipulation;
-    transform: translateZ(0);
-    transition: filter .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 100%;
-  }
-  
-  .button-19:after {
-    background-clip: padding-box;
-    background-color: #1CB0F6;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  }
-  
-  .button-19,
-  .button-19:focus {
-    user-select: auto;
-  }
-  
-  .button-19:hover:not(:disabled) {
-    filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
-  }
-  
-  .button-19:disabled {
-    cursor: auto;
-  }
-  
-  .button-19:active {
-    border-width: 4px 0 0;
-    background: none;
-  }
-*/
-
 
   .autocomplete-list {
     position: absolute;
@@ -268,4 +189,50 @@ footer {
 .create-button:active {
   background-color: #1e7e34;
   transform: scale(0.95);
+}
+
+
+
+/*About us design*/
+.footer {
+  padding: 10px 0;
+  text-align: center;
+  background-color: #2a9d8f;
+  color: white;
+}
+.footer a {
+  color: #ffffff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.contact-list li {
+  margin-bottom: 8px;
+}
+.contact-list li a {
+  color: #2a9d8f;
+  text-decoration: none;
+}
+.contact-list li a:hover {
+  text-decoration: underline;
+}
+.icon {
+  margin-right: 8px;
+}
+
+
+.active{
+  font-weight: bold;
+}
+
+.FoNav{
+  width: 330px;
+  margin: auto;
+  margin-bottom: 0;
+  margin-top: 20px;
+  padding-left: 25px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
 }
