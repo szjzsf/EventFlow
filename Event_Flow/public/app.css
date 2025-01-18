@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+  background: linear-gradient(to bottom, #e1b382, #c89666, #2d545e, #12343b);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: black; /* Adjust text color for better readability */
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+#szamlalo{
+    float: right;
+}
+
+
+
+.event-card {
+  margin-bottom: 20px;
+  transition: transform 0.4s;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  
+}
+
+.kartya-kep {
+    
+    height: 150px;
+    
+}
+
+.slide-kep{
+    height: 500px;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.dagat{
+    font-weight:600;
+}
+
+  .autocomplete-list {
+    position: absolute;
+    border: 1px solid #ddd;
+    background-color: white;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1050; /* Higher than Bootstrap modal's z-index */
+    width: 93.5%;
+  }
+  
+  .autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .autocomplete-item:hover {
+    background-color: #f0f0f0;
+  }
+
+
+.mini-label{
+  font-size: 93%;
+  font-style: italic;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  
+  display: flex;
+  flex-direction: column; /* Stacks children vertically */
+}
+
+main {
+  flex: 1; /* Makes the main content take up the available space */
+}
+
+footer {
+  flex-shrink: 0; /* Ensures the footer stays at the bottom */
+  width: 100%;
+}
+
+
+/*Kartya-design*/
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  margin-bottom: 10px;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.modal-desc {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/*Login design*/
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.custom-button:active {
+  background-color: #004085;
+  transform: scale(0.95);
+}
+
+/*Create event design*/
+.create-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-button:active {
+  background-color: #1e7e34;
+  transform: scale(0.95);
+}
+
+
+
+/*About us design*/
+.footer {
+  padding: 10px 0;
+  text-align: center;
+  background-color: #2a9d8f;
+  color: white;
+}
+.footer a {
+  color: #ffffff;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.contact-list li {
+  margin-bottom: 8px;
+}
+.contact-list li a {
+  color: #2a9d8f;
+  text-decoration: none;
+}
+.contact-list li a:hover {
+  text-decoration: underline;
+}
+.icon {
+  margin-right: 8px;
+}
+
+
+.active{
+  font-weight: bold;
+}
+
+.FoNav{
+  width: 330px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 60px;
+  margin-top: 20px;
+  padding-left: 25px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  box-shadow: 10px 10px;
+}
+
+
